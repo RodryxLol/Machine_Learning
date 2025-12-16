@@ -1,7 +1,10 @@
-fastapi
-uvicorn
 pandas
 numpy
 scikit-learn
 joblib
-pydantic
+lightgbm
+xgboost
+matplotlib
+seaborn
+imblearn
+streamlit
