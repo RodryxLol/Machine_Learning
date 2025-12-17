@@ -35,15 +35,15 @@ Obtención de primeros insights para la etapa de feature engineering.
 Dataset
 Se utiliza el dataset Home Credit Default Risk (Kaggle), compuesto por múltiples tablas relacionales. Las principales tablas empleadas en el proyecto son:
 
-application_train.parquet
-application_test.parquet
-bureau.parquet
-bureau_balance.parquet
-previous_application.parquet
-POS_CASH_balance.parquet
-installments_payments.parquet
-credit_card_balance.parquet
-HomeCredit_columns_description.parquet
+- application_train.parquet
+- application_test.parquet
+- bureau.parquet
+- bureau_balance.parquet
+- previous_application.parquet
+- POS_CASH_balance.parquet
+- installments_payments.parquet
+- credit_card_balance.parquet
+- HomeCredit_columns_description.parquet
 
 
 Todas las tablas se integran mediante feature engineering agregado previo al modelado.
