@@ -178,4 +178,21 @@ La documentación interactiva se encuentra disponible en:
 
 http://localhost:8501/
 
-Probar el endpoint POST /evaluate_risk ingresando las variables del solicitante.
+El método aplicado dentro del proyecto ha funcionado con claridad sobre los datos de 
+los clientes de Home Credit. Esto se debe al trabajo previo a su aplicación, 
+relacionado al preprocesamiento de datos que incluye la imputación, escalamiento, 
+transformación de datos confusos dentro del dataset y el tratamiento de outliers 
+específicos para evitar la eliminación de información relevante dentro del dataset.
+
+Como grupo consideramos que la aplicación del método de K-means Clustering, en 
+conjunto con CRISP-DM ha funcionado a la hora de ayudarnos a comprender los 
+diferentes tipos de conjuntos de personas que solicitan préstamos y sus capacidades 
+
+de pago en conjunto con cualquier tipo de información sobre retrasos en estos 
+mismos.
+
+Además, la visualización mediante PCA permitió validar de forma intuitiva la 
+separación entre los grupos encontrados, reforzando la coherencia del clustering. 
+Esto facilitó el interpretar los patrones relevantes dentro de los segmentos y 
+comprender mejor las características que diferencian a cada tipo de cliente dentro del 
+conjunto analizado.
