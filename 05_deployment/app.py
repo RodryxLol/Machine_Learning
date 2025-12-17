@@ -28,7 +28,7 @@ st.write(
     """
 )
 
-st.sidebar.header("🔢 Ingreso de datos del cliente")
+st.sidebar.header("Ingreso de datos del cliente")
 
 income = st.sidebar.number_input(
     "Ingreso total",
