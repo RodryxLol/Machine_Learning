@@ -5,20 +5,20 @@ DATA_PATH = "data/application_train.csv"
 def main():
     df = pd.read_csv(DATA_PATH)
 
-    print("Dimensiones del dataset:", df.shape)
-    print("\nInformación general:")
+    print("Se muestra el numero de filas y clumnas del dataset", df.shape)
+    print("\nInformación sobre los datos:")
     print(df.info())
 
-    print("\nValores nulos por columna:")
+    print("\nSe identifican los valores faltantes:")
     print(df.isna().sum().sort_values(ascending=False).head(20))
 
-    print("\nDescripción estadística:")
+    print("\nResumen de estadisticas:")
     print(df.describe())
 
     duplicated = df.duplicated().sum()
-    print(f"\nFilas duplicadas: {duplicated}")
+    print(f"\nRegistro duplicados: {duplicated}")
 
-    print("\nColumnas disponibles:")
+    print("\nColumnas del dataset:")
     print(df.columns.tolist())
 
 if __name__ == "__main__":

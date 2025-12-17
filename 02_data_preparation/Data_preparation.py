@@ -9,16 +9,16 @@ ARTIFACTS_PATH = "artifacts/"
 df = pd.read_csv(DATA_PATH)
 
 def clip_outliers_train_test(train, test, cols, lower=0.01, upper=0.99):
-    """
-    Clipping de outliers calculando percentiles SOLO en train
-    para evitar data leakage.
-    """
+    
+    #Se limitan los valores extremos basado en percentiles del 
+    #train con el objetivo de evitar el data leakage
+    
     train = train.copy()
     test = test.copy()
 
     for col in cols:
-        q_low = train[col].quantile(lower)
-        q_high = train[col].quantile(upper)
+        q_low = train[col].quantile(lower) # Percentil Inferior
+        q_high = train[col].quantile(upper) # Percentil Superior
 
         train[col] = train[col].clip(q_low, q_high)
         test[col] = test[col].clip(q_low, q_high)
@@ -28,13 +28,13 @@ def clip_outliers_train_test(train, test, cols, lower=0.01, upper=0.99):
 
 
 def main():
-    df["AGE"] = df["DAYS_BIRTH"] / -365
-    df["YEARS_EMPLOYED"] = df["DAYS_EMPLOYED"] / 365
+    df["AGE"] = df["DAYS_BIRTH"] / -365 #se convierten los dias a años
+    df["YEARS_EMPLOYED"] = df["DAYS_EMPLOYED"] / 365 
 
-    df.loc[df["DAYS_EMPLOYED"] == 365243, "YEARS_EMPLOYED"] = np.nan
+    df.loc[df["DAYS_EMPLOYED"] == 365243, "YEARS_EMPLOYED"] = np.nan #se eliminan valores irreales
     df.loc[df["YEARS_EMPLOYED"] > 60, "YEARS_EMPLOYED"] = np.nan
 
-    df['YEARS_EMPLOYED'] = df['YEARS_EMPLOYED'].fillna(df['YEARS_EMPLOYED'].median())
+    df['YEARS_EMPLOYED'] = df['YEARS_EMPLOYED'].fillna(df['YEARS_EMPLOYED'].median()) #Los valores nulos se reemplazan por la mediana
 
         
     VARIABLES = [
@@ -62,7 +62,7 @@ def main():
         df_train[col] = df_train[col].fillna(median_val)
         df_test[col] = df_test[col].fillna(median_val)
 
-    df_train, df_test = clip_outliers_train_test(df_train, df_test, VARIABLES)
+    df_train, df_test = clip_outliers_train_test(df_train, df_test, VARIABLES) #se aplican limites a los valores extremos
     
     df_variables.to_csv(ARTIFACTS_PATH + "df_variables.csv", index=False)
     scaler = StandardScaler()
@@ -76,7 +76,7 @@ def main():
 
     df_scaled = pd.DataFrame(X_scaled, columns=VARIABLES)
     df_scaled.to_csv(ARTIFACTS_PATH + "df_scaled.csv", index=False)
-    df_variables.to_csv(ARTIFACTS_PATH + "df_variables.csv", index=False)
+    df_variables.to_csv(ARTIFACTS_PATH + "df_variables.csv", index=False) #se exportan los datos
     df_scaled.head()
 
     
@@ -93,7 +93,7 @@ def main():
     df_train.to_csv(ARTIFACTS_PATH + "df_train_variables.csv", index=False)
     df_test.to_csv(ARTIFACTS_PATH + "df_test_variables.csv", index=False)
 
-    print("Preparación de datos completada sin data leakage.")    
+    print("los datos fueron preparados correctamente")    
 
     
 
