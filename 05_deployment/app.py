@@ -1,13 +1,8 @@
 import streamlit as st
 import pandas as pd
 import joblib
-import numpy as np
 
 ARTIFACTS_PATH = "artifacts/"
-
-
-scaler = joblib.load(ARTIFACTS_PATH + "scaler.pkl")
-kmeans = joblib.load(ARTIFACTS_PATH + "kmeans_model.pkl")
 
 VARIABLES = [
     "AMT_INCOME_TOTAL",
@@ -18,12 +13,21 @@ VARIABLES = [
 ]
 
 
+@st.cache_resource
+def load_models():
+    scaler = joblib.load(ARTIFACTS_PATH + "scaler.pkl")
+    kmeans = joblib.load(ARTIFACTS_PATH + "kmeans_model.pkl")
+    return scaler, kmeans
+
+scaler, kmeans = load_models()
+
+
 st.set_page_config(page_title="Home Credit Clustering", layout="centered")
 
 st.title("Segmentación de Clientes – Home Credit")
 st.write(
     """
-    Esta aplicación utiliza un modelo **K-Means** entrenado sobre datos de Home Credit
+    Esta aplicación utiliza un modelo **K-Means** entrenado sobre datos históricos
     para asignar a un solicitante de crédito a un **cluster de comportamiento**.
     """
 )
@@ -69,21 +73,16 @@ years_employed = st.sidebar.number_input(
 
 if st.sidebar.button("Calcular Cluster"):
 
-
     df_input = pd.DataFrame(
         [[income, credit, annuity, age, years_employed]],
         columns=VARIABLES
     )
 
-
     X_scaled = scaler.transform(df_input)
-
-
     cluster = int(kmeans.predict(X_scaled)[0])
 
     st.subheader("Resultado")
     st.success(f"El cliente pertenece al **Cluster {cluster}**")
-
 
     explanations = {
         0: "Clientes con ingresos y montos de crédito bajos.",
