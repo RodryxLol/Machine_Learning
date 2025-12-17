@@ -3,17 +3,17 @@ Examen Machine Learning – Home Credit Default Risk (Clasificación)
 Proyecto completo de Machine Learning desarrollado como examen final, utilizando el dataset Home Credit Default Risk (Kaggle). El proyecto implementa un flujo end-to-end basado en la metodología CRISP-DM, estructurado como microservicios, con buenas prácticas de ingeniería de software y despliegue del modelo final como una API REST mediante Streamlit.
 
 Contexto del Negocio:
-Una institución financiera busca mejorar su proceso de evaluación de solicitudes de crédito. El objetivo es estimar la probabilidad de que un solicitante incurra en incumplimiento de pago (default), con el fin de minimizar pérdidas financieras, automatizar decisiones de aprobación y derivar casos intermedios a revisión manual.
+Una entidad del sector financiero pretende optimizar el análisis de solicitudes de crédito mediante la estimación del riesgo de incumplimiento de los solicitantes. El propósito es reducir las pérdidas económicas, apoyar la automatización de las decisiones de aprobación y canalizar los casos con mayor nivel de incertidumbre hacia una evaluación manual.
 
 Objetivo Técnico:
-Construir un modelo de clasificación binaria que permita predecir el riesgo de default integrando múltiples fuentes de datos, aplicando ingeniería de características agregadas, manejando desbalance de clases y alta dimensionalidad, y sirviendo el modelo mediante una API REST consumible por otros sistemas.
+Desarrollar un modelo de clasificación binaria orientado a estimar la probabilidad de incumplimiento, incorporando diversas fuentes de información, aplicando técnicas de ingeniería de características a nivel agregado, abordando el desbalance entre clases y la alta dimensionalidad, y desplegando la solución a través de una API REST accesible para otros sistemas.
 
 Supuestos y Limitaciones del Modelo:
-El modelo de predicción de riesgo crediticio fue entrenado utilizando datos históricos del dataset Home Credit Default Risk, por lo que se asume que los patrones de comportamiento observados en el pasado se mantienen en el tiempo. Sin embargo, cambios en el contexto económico, políticas crediticias o comportamiento de los solicitantes podrían afectar el rendimiento futuro del modelo.
+El modelo de estimación de riesgo crediticio fue entrenado a partir de información histórica correspondiente al conjunto de datos Home Credit Default Risk, bajo el supuesto de que los patrones de comportamiento identificados permanecen relativamente estables en el tiempo. No obstante, variaciones en el entorno macroeconómico, ajustes en las políticas de otorgamiento de crédito o cambios en el perfil de los solicitantes pueden impactar negativamente su desempeño futuro.
 
-Dado que se trata de un modelo de clasificación probabilística, sus predicciones no deben ser interpretadas como decisiones definitivas, sino como una herramienta de apoyo para la toma de decisiones. El sistema está diseñado para complementar el criterio humano, especialmente en los casos clasificados como riesgo intermedio.
+Al tratarse de un modelo probabilístico de clasificación, los resultados obtenidos no deben considerarse determinantes por sí mismos, sino como un insumo para respaldar el proceso de toma de decisiones. La solución está concebida para apoyar el juicio humano, en particular en aquellos casos que presentan niveles de riesgo intermedios.
 
-El uso de variables agregadas provenientes de historiales financieros puede introducir sesgos indirectos, por lo que se recomienda un monitoreo continuo del desempeño del modelo y auditorías periódicas para asegurar decisiones justas y responsables.
+De manera que la incorporación de variables agregadas derivadas de historiales financieros puede generar sesgos de forma indirecta. Por ello, se recomienda implementar mecanismos de monitoreo continuo del desempeño, junto con evaluaciones y auditorías periódicas, con el objetivo de promover decisiones equitativas y responsables.
 
 Interpretación de los clusters:
 
