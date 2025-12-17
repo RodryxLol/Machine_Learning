@@ -15,6 +15,26 @@ Dado que se trata de un modelo de clasificación probabilística, sus prediccion
 
 El uso de variables agregadas provenientes de historiales financieros puede introducir sesgos indirectos, por lo que se recomienda un monitoreo continuo del desempeño del modelo y auditorías periódicas para asegurar decisiones justas y responsables.
 
+Interpretación de los clusters:
+
+Cluster 0: personas adultas, de ingresos medios y de créditos medios. A partir 
+de la tasa de morosidad puede interpretarse como un riesgo intermedio o 
+moderado (6.5%).
+● Cluster 1: se interpreta como un subconjunto de personas adultas pero más 
+jóvenes que en el anterior, definiendo que poseen un trabajo estable y que 
+solicitan créditos más grandes. De mayores ingresos que el anterior. Posee la 
+tasa de morosidad más alta (10.8%), basada en la solicitud de créditos 
+grandes, pero de aspectos similares al cluster anterior.
+● Cluster 2: personas adultas, que solicitan créditos más grandes y de ingresos 
+más altos que en los clusters anteriores. Poseen una larga estabilidad laboral. 
+De tasa de morosidad más baja (5.0%), explicada por su larga estabilidad 
+laboral y económica.
+● Cluster 3: adultos de ingresos mayores a los de los demás clusters, solicitan 
+créditos mucho más grandes que en los otros subconjuntos. Poseen empleo 
+en rangos similares al cluster 0 y 1, de rango menor al anterior. Tasa de 
+morosidad similar al del cluster 0 (6.7%), se interpreta como un riesgo 
+intermedio a la hora de entregar préstamos.
+
 
 
 Data Understanding (EDA)
