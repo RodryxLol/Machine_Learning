@@ -8,13 +8,13 @@ ARTIFACTS_PATH = "artifacts/"
 
 def main():
 
-    df_scaled = pd.read_csv(ARTIFACTS_PATH + "df_scaled.csv")
+    df_scaled = pd.read_csv(ARTIFACTS_PATH + "df_scaled.csv") #se cargan los datos escalados
     X_train = pd.read_csv(ARTIFACTS_PATH + "X_train_scaled.csv")
   
-    K_range = range(2, 11)
+    K_range = range(2, 11) #Se define un rango de valores posibles para el número de clusters
     inertia_values = []
 
-    for k in K_range:
+    for k in K_range: #Entrenamiento para el metodo del codo
         kmeans = KMeans(
             n_clusters=k,
             random_state=42,
@@ -24,7 +24,7 @@ def main():
         inertia_values.append(kmeans.inertia_)
 
 
-    plt.figure(figsize=(7, 4))
+    plt.figure(figsize=(7, 4)) #Se dibuja el gráfico del método del codo
     plt.plot(K_range, inertia_values, marker="o")
     plt.title("Método del Codo (Training Set)")
     plt.xlabel("Número de Clusters (k)")
@@ -34,9 +34,9 @@ def main():
     plt.show()
 
 
-    k_optimo = 4
+    k_optimo = 4 #se define el numero final de grupos basado en el grafico de codo
 
-    kmeans_final = KMeans(
+    kmeans_final = KMeans( #Se entrena el modelo K-Means definitivo usando el valor óptimo
         n_clusters=k_optimo,
         random_state=42,
         n_init=20

@@ -8,10 +8,10 @@ ARTIFACTS_PATH = "artifacts/"
 
 def main():
 
-    X_train = pd.read_csv(ARTIFACTS_PATH + "X_train_scaled.csv")
+    X_train = pd.read_csv(ARTIFACTS_PATH + "X_train_scaled.csv") #Se cargan los datos escalados de entrenamiento y prueba
     X_test = pd.read_csv(ARTIFACTS_PATH + "X_test_scaled.csv")
 
-    df_train = pd.read_csv(ARTIFACTS_PATH + "df_train_variables.csv")
+    df_train = pd.read_csv(ARTIFACTS_PATH + "df_train_variables.csv") #Se obtienen los datos originales para poder interpretar los clusters en su escala real
     df_test = pd.read_csv(ARTIFACTS_PATH + "df_test_variables.csv")
 
     kmeans = joblib.load(ARTIFACTS_PATH + "kmeans_model.pkl")
@@ -46,7 +46,7 @@ def main():
     df_pca = pd.concat([df_train_pca, df_test_pca])
 
 
-    plt.figure(figsize=(8, 6))
+    plt.figure(figsize=(8, 6)) #Se genera un gráfico de dispersión coloreado por cluster
 
     for c in sorted(df_pca["CLUSTER"].unique()):
         subset = df_pca[df_pca["CLUSTER"] == c]

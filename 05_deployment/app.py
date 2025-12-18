@@ -22,17 +22,17 @@ def load_models():
 scaler, kmeans = load_models()
 
 
-st.set_page_config(page_title="Home Credit Clustering", layout="centered")
+st.set_page_config(page_title="Clustering de creditos hipotecarios", layout="centered")
 
-st.title("Segmentación de Clientes – Home Credit")
+st.title("Segmentación de Clientes – Credito Hipotecario")
 st.write(
     """
     Esta aplicación utiliza un modelo **K-Means** entrenado sobre datos históricos
-    para asignar a un solicitante de crédito a un **cluster de comportamiento**.
+    para asignar a un solicitante de crédito a un **cluster de Riesgo**.
     """
 )
 
-st.sidebar.header("Ingreso de datos del cliente")
+st.sidebar.header("Datos del cliente")
 
 income = st.sidebar.number_input(
     "Ingreso total",
