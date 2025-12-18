@@ -74,7 +74,7 @@ Todas las tablas se integran mediante feature engineering agregado previo al mod
 Estructura del Proyecto (CRISP-DM / Microservicios)
 El proyecto está organizado simulando un flujo de microservicios alineado con las fases de CRISP-DM:
 
-EXAMEN_ML_HOME_CREDIT_FULL/
+Machine_Learning/
 
 01_data_understanding/
 Scripts y notebooks para análisis exploratorio de datos.
